@@ -25,7 +25,7 @@
 #include "mgos_gpio.h"
 #include "mgos_system.h"
 
-#define NUM_CHANNELS 3 /* r, g, b */
+#define NUM_CHANNELS 4 /* r, g, b */
 
 struct mgos_neopixel {
   int pin;
@@ -74,6 +74,8 @@ void mgos_neopixel_set(struct mgos_neopixel *np, int i, int r, int g, int b) {
       LOG(LL_ERROR, ("Wrong order: %d", np->order));
       break;
   }
+  p[3] = 0;
+  
 }
 
 void mgos_neopixel_clear(struct mgos_neopixel *np) {
